@@ -1,2 +1,3 @@
-# examples
-Code examples
+Примеры кода
+
+* [Django](django)
