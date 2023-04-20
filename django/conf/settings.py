@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.order',
 ]
 
 MIDDLEWARE = [
@@ -145,8 +146,8 @@ LOGGING = {
             'level': 'INFO',
         },
         'django.db.backends': {
-            'level': 'INFO',
-            # 'level': 'DEBUG',
+            # 'level': 'INFO',
+            'level': 'DEBUG',
         },
         'django.template': {
             'level': 'INFO',

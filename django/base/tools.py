@@ -2,6 +2,7 @@ import collections.abc
 import copy
 import datetime
 import functools
+import logging
 import time
 import typing
 
@@ -11,6 +12,8 @@ import psycopg2
 import pydantic
 
 import base
+
+log = logging.getLogger(__name__)
 
 
 class UrlPath(str):
@@ -124,7 +127,7 @@ def json_response(func):
         except base.exc.ViewResponse as e:
             result = e.response_dto
         except Exception as e:
-            base.logger.exception('Неперхваченная ошибка во view %s()', func.__name__)
+            log.exception('Неперхваченная ошибка во view %s()', func.__name__)
             result = base.web.BaseViewError().add(
                 'Произошла неперехваченная ошибка', *iter_exc(e))
         if isinstance(result, base.web.BaseViewResponse):
@@ -270,7 +273,7 @@ class Runtime:
                 with Runtime() as _timer:
                     result = func(*args, **kwargs)
                 if on_finish is None:
-                    base.logger.debug('function "%s": %s', func.__name__, _timer)
+                    log.debug('function "%s": %s', func.__name__, _timer)
                 else:
                     on_finish(_timer)
                 return result
