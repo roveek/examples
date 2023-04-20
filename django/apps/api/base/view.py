@@ -5,6 +5,7 @@ View вызывает метод обработки контроллера, во
 """
 
 import abc
+import logging
 import typing
 
 import pydantic
@@ -12,6 +13,8 @@ from django import http
 from django import views
 
 import base
+
+log = logging.getLogger(__name__)
 
 
 class BaseApiView(views.View):
