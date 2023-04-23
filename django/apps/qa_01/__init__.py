@@ -1,9 +1,8 @@
 import importlib
 
 __all__ = [
-    'api',
-    'order',
-    'qa_01',
+    'admin',
+    'models',
 ]
 
 
