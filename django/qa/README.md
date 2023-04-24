@@ -1,6 +1,6 @@
 ## Вопросы с собеседований
 
-####Как можно улучшить django-код?
+#### Как можно улучшить django-код?
 ```python
 for site in Site.objects.all():
     print(site.user.email)
@@ -13,7 +13,7 @@ for site in Site.objects.select_related('user'):
 
 ---
 
-####Как можно улучшить django-код?
+#### Как можно улучшить django-код?
 ```python
 for u in User.objects.all(): 
     print ([g.name for g in u.groups.all()])
